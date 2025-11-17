@@ -199,6 +199,43 @@ Each Weaviate collection has the following schema:
 - Reduce `TARGET_RECORDS` or `batch_size`
 - Use streaming mode (already enabled)
 
+## Data Management
+
+### Why Data Files Are Not Included
+
+The `data/` and `processed_data/` folders are excluded from this repository (see `.gitignore`) for the following reasons:
+
+1. **Repository Size**: Large data files make cloning slow and can exceed GitHub's recommended limits
+2. **Regenerability**: Data can be recreated using the provided scripts
+3. **Privacy**: Your specific data may contain sensitive information
+4. **Version Control**: Large binary files don't version well in Git
+
+### Getting Data
+
+**Option 1: Use Your Own Data**
+- Place parquet files in the `data/` folder
+- Run `python process_parquet_data.py` to process them
+
+**Option 2: Download from HuggingFace**
+- Run `python process_wikipedia.py` to download and process Wikipedia datasets
+
+**Option 3: Share Data Separately (if needed)**
+If you need to share processed data with others:
+- Use cloud storage (Google Drive, Dropbox, AWS S3)
+- Use Git LFS for large files (if you must include them)
+- Provide download links in documentation
+- Use data hosting services like:
+  - [HuggingFace Datasets](https://huggingface.co/datasets)
+  - [Kaggle Datasets](https://www.kaggle.com/datasets)
+  - [Zenodo](https://zenodo.org/)
+
+### Sample Data
+
+If you want to include sample data for testing:
+- Keep it small (< 10MB)
+- Include only a few example files
+- Document it clearly in the README
+
 ## References
 
 - [Weaviate Documentation](https://docs.weaviate.io/)
